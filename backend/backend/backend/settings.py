@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'core',
     'rest_estudiante',
+    'rest_cuenta_estudiante',
+    'rest_asignatura',
+    'rest_asistencia',
 
 ]
 
