@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from html5lib import serialize
+
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -10,13 +10,19 @@ from .serializers import Cuenta_Estudiante_Serializer
 
 # Create your views here.
 @csrf_exempt
-@api_view(['GET','POST'])
-
-
+@api_view(['POST'])
 def getCuenta(request):
-    if request.method == 'GET':
-        cuenta_estudiante = Cuenta_Estudiante.objects.all()
-        serializer = Cuenta_Estudiante_Serializer(cuenta_estudiante, many=True)
+        # cuenta_estudiante = Cuenta_Estudiante.objects.all()
+        # serializer = Cuenta_Estudiante_Serializer(cuenta_estudiante, many=True)
+        # return Response(serializer.data)
+        cuenta_estudiante = Cuenta_Estudiante.objects.get(
+            username=request.data.get("username"),
+            password=request.data.get("password")
+        )
+        serializer = Cuenta_Estudiante_Serializer(cuenta_estudiante)
+
         return Response(serializer.data)
+
+
 
 
