@@ -3,5 +3,5 @@ from rest_estudiante.views import getEstudiante
 
 
 urlpatterns = [
-    path('getEstudiante', getEstudiante, name="getEstudiante")
+    path('Estudiante', getEstudiante, name="getEstudiante")
     ]
