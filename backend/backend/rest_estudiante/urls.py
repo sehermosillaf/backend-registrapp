@@ -1,7 +1,8 @@
 from django.urls import path
-from rest_estudiante.views import getEstudiante
+from rest_estudiante.views import crearEstudiante, getEstudiante
 
 
 urlpatterns = [
-    path('Estudiante', getEstudiante, name="getEstudiante")
+    path('getEstudiante', getEstudiante, name="getEstudiante"),
+    path('crearEstudiante', crearEstudiante, name="crearCuenta")
     ]
